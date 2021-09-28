@@ -13,12 +13,7 @@ function Routage () {
   return (
     <Router>
         <div>
-          <nav>
-            <Link to="/compte">Compte</Link>
-            <Link to="/feed">L'arbre foret</Link>
-            <Link to="/post">Ma feuille</Link>
-            <Link to="/maPage">Ma branche</Link>
-          </nav>
+          
 
           <Switch>
             <Route path="/compte">
