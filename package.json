@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
-  "name": "pando",
-=======
   "name": "projet-pando",
->>>>>>> 7f3695242003b7a3bd59853e0ee26a5baa0b2567
   "version": "0.1.0",
   "private": true,
   "dependencies": {
