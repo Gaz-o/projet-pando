@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "../compte.css";
+import { login } from "../../../lib/social-network-library-master"; // Import de la fonction login
 
 function Log() {
     const [Log, setLog] = useState("");
@@ -16,11 +17,14 @@ function Log() {
         setPassword(e.target.value)
     }
 
+ 
+
+
     useEffect(() => {
         setLog(localStorage.getItem("Password"))
     }, [Password]);
 
-    const btn = () => {
+    const btn = async () => {
         if (Email !== "" && Password !== "") {
             if (Email === ValidEmail && Password === ValidPasword) {
                 localStorage.setItem("Password", "Ok Cool")
@@ -40,6 +44,10 @@ function Log() {
         setEmail("")
         document.querySelector(".email").value = ""
         document.querySelector(".password").value = ""
+
+        let result = await login(Email, Password); // Utilisation de la fonction login
+        console.log(result);
+
     }
     const btnLogOut = () => {
         localStorage.setItem("Password", "")

@@ -16,7 +16,7 @@ function Header() {
     
                     <Navbar.Brand href="home">Pando - Réseau social</Navbar.Brand>
     
-                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                        <Navbar.Toggle aria-controls="basic-navbar-nav"/>
     
                             <Navbar.Collapse id="basic-navbar-nav">
         
@@ -24,9 +24,9 @@ function Header() {
                                     
                                         <Link className="nav-link" to="/compte"><Button variant="outline-success" className="button">Compte</Button></Link>
                                         <Link className="nav-link" to="/feed"><Button variant="outline-success" className="button">L'arbre foret</Button></Link>
-                                        <Link className="nav-link" to="/post"><Button variant="outline-success" className="button">Ma feuille</Button></Link>
+                                        <Link className="nav-link" to="/creaPost"><Button variant="outline-success" className="button">Ma feuille</Button></Link>
                                         <Link className="nav-link" to="/maPage"><Button variant="outline-success" className="button">Ma branche</Button></Link>
-                                    
+                                        
                                 </Nav>
         
                             </Navbar.Collapse>

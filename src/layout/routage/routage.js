@@ -22,7 +22,7 @@ function Routage () {
           <Route path="/feed">
             <Nourrir />
           </Route>
-          <Route path="/post">
+          <Route path="/creaPost">
             <Postcrea />
           </Route>
           <Route path="/maPage">
