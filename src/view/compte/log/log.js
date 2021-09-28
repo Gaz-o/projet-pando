@@ -14,22 +14,18 @@ function Log() {
         setPassword(e.target.value)
     }
 
-    let co;
-
     const btn = async () => {
-        co = await login(Email, Password);
+        let co = await login(Email, Password);
         setMessage(co.message);
+        if (isUserLoggedIn() === true) {
+        }
     }
 
     const btnLogOut = async () => {
-        co = await logout()
+        let co = await logout()
         setMessage("")
-        console.log();
+        console.log(co);;
     }
-
-    useEffect(() => {
-        isUserLoggedIn()
-    }, [co]);
 
     const NoLog = (
         <div>
@@ -47,13 +43,13 @@ function Log() {
         (<div>
             <p>{Message}</p>
             <button className="btn" onClick={btnLogOut}>Deconnexion</button>
-        </div>)
-
-    return (
-        <div>
-            { isUserLoggedIn() !== true ? NoLog : YesLog}
-        </div>
-    )
+        </div>)    
+    
+    if (isUserLoggedIn() === true) {
+        return YesLog
+    } else {
+        return NoLog
+    }
 }
 
 export default Log;
