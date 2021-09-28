@@ -1,6 +1,7 @@
 import "./routage.css";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Compte from "../../view/compte/compte.js";
+import Edition from "../../view/compte/edition/edition.js"
 import Postcrea from "../../view/post/creaPost/creaPost.js";
 import Home from "../../view/compte/connexion.js";
 import MaPage from "../../view/maPage/maPage.js";
@@ -18,6 +19,7 @@ function Routage () {
         <Switch>
           <Route path="/compte">
             <Compte />
+            <Edition/>
           </Route>
           <Route path="/feed">
             <Nourrir />
