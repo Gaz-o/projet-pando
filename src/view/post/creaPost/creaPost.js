@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Textarea,Container,Form, FormControl, InputGroup ,Button} from 'react-bootstrap';
+import {Container,Form, FormControl, InputGroup ,Button} from 'react-bootstrap';
 import "../post.css";
+import { useState } from "react";
 
 function CreatePost() {
 
@@ -9,21 +10,21 @@ function CreatePost() {
     const [emptyField, setemptyField] = useState("");
     const [feed, setFeed] = useState([]);
 
-    const getTitle = (e) => {
+    /*const getTitle = (e) => {
         setStatus(...title, e.target.value);
     }
     const getContent = (e) => {
         setStatus(...content, e.target.value);
-    }
+    }*/
 
     const post = (e) => {
 
-        if (title !== "" && content !== "") {
+        /*if (title !== "" && content !== "") {
             setemptyField("Tous les champs sont requis");
         }else{
             setFeed([...feed, status]);
                 console.log(feed);
-        }
+        }*/
     }
     return (
 
@@ -39,11 +40,11 @@ function CreatePost() {
 
                         <InputGroup className="mb-3">
 
-                            <FormControl id="postTitle" type="text" onChange={getTitle} placeholder="Ajouter un titre :" aria-label="task" aria-describedby="basic-addon"/>
+                            <FormControl id="postTitle" type="text"  placeholder="Ajouter un titre :" aria-label="task" aria-describedby="basic-addon"/>
 
                         </InputGroup>
 
-                        <Textarea id="postContent" type="text" onChange={getContent} placeholder="Votre contenu :" aria-label="task" aria-describedby="basic-addon"></Textarea>
+                        <FormControl as="textarea" id="postContent" type="text"  placeholder="Votre contenu :" aria-label="task" aria-describedby="basic-addon"/>
 
                         <Button variant="outline-success" onClick={post}>Publier</Button>
 
