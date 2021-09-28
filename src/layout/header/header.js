@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Navbar,Container,Nav} from 'react-bootstrap';
 import "./header.css";
-import { BrowserRouter as Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 
 function Header() {
@@ -14,19 +14,19 @@ function Header() {
   
                 <Container>
     
-                    <Navbar.Brand href="/home">Pando - Réseau social</Navbar.Brand>
+                    <Navbar.Brand href="home">Pando - Réseau social</Navbar.Brand>
     
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
     
                             <Navbar.Collapse id="basic-navbar-nav">
         
                                 <Nav className="me-auto">
-                        
-                                    <Link to="/compte">Compte</Link>
-                                    <Link to="/feed">L'arbre foret</Link>
-                                    <Link to="/post">Ma feuille</Link>
-                                    <Link to="/maPage">Ma branche</Link>
-                
+                                    
+                                        <Link to="/compte">Compte</Link>
+                                        <Link to="/feed">L'arbre foret</Link>
+                                        <Link to="/post">Ma feuille</Link>
+                                        <Link to="/maPage">Ma branche</Link>
+                                    
                                 </Nav>
         
                             </Navbar.Collapse>
