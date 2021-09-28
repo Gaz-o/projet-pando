@@ -1,5 +1,6 @@
 import "../compte.css";
 import { useState } from "react";
+import { register } from "../../../lib/social-network-library-master";
 
 function Crea() {
 
@@ -27,8 +28,13 @@ function Crea() {
     }
 
     /* Evénénement clic sur le bouton */
-    const handleClick = () => {
-        console.log(firstName, lastName, email, password);
+    const handleClick = async () => {
+        let result = await register(firstName, lastName, email, password);
+        console.log(result);
+        document.querySelector("#firstNameInput").value = "";
+        document.querySelector("#lastNameInput").value = "";
+        document.querySelector("#emailInput").value = "";
+        document.querySelector("#passwordInput").value = "";
     }
 
   return (
@@ -40,7 +46,7 @@ function Crea() {
       <br />
       <input onChange={handleEmailInput} type="email" id="emailInput" placeholder="Adresse e-mail"></input>
       <br />
-      <input onChange={handlePasswordInput} type="password" id="emailInput" placeholder="Mot de passe"></input>
+      <input onChange={handlePasswordInput} type="password" id="passwordInput" placeholder="Mot de passe"></input>
       <br />
       <button onClick={handleClick}>Suivant</button>
     </div>
