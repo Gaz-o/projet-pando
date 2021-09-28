@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Navbar,Container,Nav} from 'react-bootstrap';
 import "./header.css";
+import { BrowserRouter as Link} from 'react-router-dom';
 
 
 function Header() {
@@ -12,7 +13,7 @@ function Header() {
   
                 <Container>
     
-                    <Navbar.Brand href="#home">Pando - Réseau social</Navbar.Brand>
+                    <Navbar.Brand href="/home">Pando - Réseau social</Navbar.Brand>
     
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
     
@@ -20,11 +21,10 @@ function Header() {
         
                                 <Nav className="me-auto">
                         
-                                    <Nav.Link>Compte</Nav.Link>
-                    
-                                    <Nav.Link>Feed</Nav.Link>
-
-                                    <Nav.Link>Ma Page</Nav.Link>
+                                    <Link to="/compte">Compte</Link>
+                                    <Link to="/feed">L'arbre foret</Link>
+                                    <Link to="/post">Ma feuille</Link>
+                                    <Link to="/maPage">Ma branche</Link>
                 
                                 </Nav>
         
@@ -36,8 +36,6 @@ function Header() {
 
         </div>
         
-        
-
     );
 }
 
