@@ -1,13 +1,12 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "../compte.css";
+import { login, logout } from "../../../lib/social-network-library-master";
 
 function Log() {
-    const [Log, setLog] = useState("");
     const [Email, setEmail] = useState("");
     const [Password, setPassword] = useState("");
-    const ValidEmail = "Admin";
-    const ValidPasword = "Admin";
-    const [Erreur, setErreur] = useState("");
+    const [Message, setMessage] = useState("")
+    const [Success, setSuccess] = useState("")
 
     const inputEmail = (e) => {
         setEmail(e.target.value)
@@ -16,40 +15,23 @@ function Log() {
         setPassword(e.target.value)
     }
 
-    useEffect(() => {
-        setLog(localStorage.getItem("Password"))
-    }, [Password]);
-
-    const btn = () => {
-        if (Email !== "" && Password !== "") {
-            if (Email === ValidEmail && Password === ValidPasword) {
-                localStorage.setItem("Password", "Ok Cool")
-                setLog("Ok Cool")
-                console.log(Email, Password);
-            } else {
-                console.log(Email, Password);
-                setErreur("Dommage un des 2 est pas bon voir les 2")
-                console.log("Dommage un des 2 est pas bon voir les 2");
-            }
-        } else {
-            setErreur("un des champs a pas etait remplie")
-            console.log("un des champs a pas etait remplie");
-            console.log(Email, Password);
-        }
-        setPassword("")
-        setEmail("")
-        document.querySelector(".email").value = ""
-        document.querySelector(".password").value = ""
+    const btn = async () => {
+        let result = await login(Email, Password);
+        setMessage(result.message);
+        setSuccess(result.success);
     }
-    const btnLogOut = () => {
-        localStorage.setItem("Password", "")
-        setLog("")
+
+    const btnLogOut = async () => {
+        let out = await logout()
+        setSuccess("")
+        setMessage("")
+        console.log(out);
     }
 
     const NoLog = (
         <div>
             <h2>Connexion</h2>
-            <p>{Erreur}</p>
+            <p>{Message}</p>
             <label>Votre Email</label>
             <input type="email" className="email" onChange={inputEmail} />
             <label>Mot de passe</label>
@@ -60,12 +42,13 @@ function Log() {
 
     const YesLog =
         (<div>
+            <p>{Message}</p>
             <button className="btn" onClick={btnLogOut}>Deconnexion</button>
         </div>)
 
     return (
         <div>
-            {Log !== "Ok Cool" ? NoLog : YesLog}
+            { Success !== true ? NoLog : YesLog}
         </div>
     )
 }
