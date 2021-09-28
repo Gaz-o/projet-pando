@@ -1,0 +1,7 @@
+import "./compte.css"
+
+function Compte () {
+
+};
+
+export default Compte;
