@@ -1,5 +1,6 @@
 import "./compte.css";
 import Crea from "./crea/crea";
+import Log from "./log/log";
 
 function Home () {
 
@@ -7,6 +8,7 @@ function Home () {
         <div>
             <h1>Home</h1>
             <Crea/>
+            <Log/>
         </div>
     )
 };
