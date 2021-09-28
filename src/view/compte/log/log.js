@@ -1,12 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../compte.css";
-import { login, logout } from "../../../lib/social-network-library-master";
+import { login, logout, isUserLoggedIn } from "../../../lib/social-network-library-master";
 
 function Log() {
     const [Email, setEmail] = useState("");
     const [Password, setPassword] = useState("");
     const [Message, setMessage] = useState("")
-    const [Success, setSuccess] = useState("")
 
     const inputEmail = (e) => {
         setEmail(e.target.value)
@@ -15,18 +14,22 @@ function Log() {
         setPassword(e.target.value)
     }
 
+    let co;
+
     const btn = async () => {
-        let result = await login(Email, Password);
-        setMessage(result.message);
-        setSuccess(result.success);
+        co = await login(Email, Password);
+        setMessage(co.message);
     }
 
     const btnLogOut = async () => {
-        let out = await logout()
-        setSuccess("")
+        co = await logout()
         setMessage("")
-        console.log(out);
+        console.log();
     }
+
+    useEffect(() => {
+        isUserLoggedIn()
+    }, [co]);
 
     const NoLog = (
         <div>
@@ -48,7 +51,7 @@ function Log() {
 
     return (
         <div>
-            { Success !== true ? NoLog : YesLog}
+            { isUserLoggedIn() !== true ? NoLog : YesLog}
         </div>
     )
 }
