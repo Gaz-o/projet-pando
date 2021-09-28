@@ -7,6 +7,7 @@ import MaPage from "../../view/maPage/maPage.js";
 import Nourrir from "../../view/feed/feed.js";
 
 
+
 function Routage () {
 
   return (
@@ -39,6 +40,6 @@ function Routage () {
         </div>
     </Router>
   );
-};
+}
 
 export default Routage;
