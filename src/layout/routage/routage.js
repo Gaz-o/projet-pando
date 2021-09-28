@@ -8,7 +8,8 @@ import Nourrir from "../../view/feed/feed.js";
 import Header from "../header/header";
 
 
-function Routage() {
+
+function Routage () {
 
   return (
     <Router>
@@ -34,6 +35,6 @@ function Routage() {
       </div>
     </Router>
   );
-};
+}
 
 export default Routage;
