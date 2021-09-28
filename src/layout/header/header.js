@@ -22,10 +22,10 @@ function Header() {
         
                                 <Nav className="me-auto">
                                     
-                                        <Link to="/compte">Compte</Link>
-                                        <Link to="/feed">L'arbre foret</Link>
-                                        <Link to="/post">Ma feuille</Link>
-                                        <Link to="/maPage">Ma branche</Link>
+                                        <Link className="nav-link" to="/compte">Compte</Link>
+                                        <Link className="nav-link" to="/feed">L'arbre foret</Link>
+                                        <Link className="nav-link" to="/post">Ma feuille</Link>
+                                        <Link className="nav-link" to="/maPage">Ma branche</Link>
                                     
                                 </Nav>
         
