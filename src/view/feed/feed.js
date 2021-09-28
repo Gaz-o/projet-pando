@@ -1,7 +1,13 @@
 import "./feed.css";
 
-function Feed () {
+function Nourrir() {
+
+    return (
+        <div>
+            <h1>Nourrir</h1>
+        </div>
+    )
 
 };
 
-export default Feed;
+export default Nourrir;
