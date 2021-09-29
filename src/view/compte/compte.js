@@ -4,7 +4,6 @@ function Compte () {
     
     return (
         <div>
-            <h1>Compte</h1>
         </div>
     )
 };

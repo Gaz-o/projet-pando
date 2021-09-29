@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getPosts } from "../../lib/social-network-library-master";
+import { addLike, getPosts } from "../../lib/social-network-library-master";
 import "./feed.css";
 
 function Nourrir() {
@@ -11,22 +11,26 @@ function Nourrir() {
         return result
     }
 
+    const likes = async (id) => {
+        let like = await addLike(id);
+        return like
+    }
+
     useEffect(()=>{
         recupPosts().then((rep) => {
             setPosts(rep.posts)               
         })
     },[])
 
-
-    console.log(Posts, recupPosts(), 1);
-
     const LaFonction = () => {
         return Posts.map((post) => {
+            console.log(post.likes ,6)
             return (
                 <div>
                     <h3>{post.title}</h3>
                     <p>{post.content}</p>
                     <p>{post.firstname} a {post.date}</p>
+                    <button onClick={likes(post._id)}>Like <span>{post.likes.length}</span></button>
                 </div>
             )
         })

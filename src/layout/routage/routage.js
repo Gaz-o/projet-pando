@@ -16,7 +16,6 @@ function Routage() {
         <Switch>
           <Route path="/compte">
             <Edition />
-            <Compte />
           </Route>
           <Route path="/feed">
             <Nourrir />
