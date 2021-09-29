@@ -18,6 +18,7 @@ function Log() {
 
     const [Message, setMessage] = useState(nolog())
     const [BTN, setBTN] = useState("Soumettre")
+
     let co
 
     const btn = async () => {
@@ -30,7 +31,7 @@ function Log() {
         } else {
             co = await login(Email, Password);
             setPassword("");
-            setEmail("")
+            setEmail("");
             setErreur(co.message);
             console.log(co);
             if (co.success) {
