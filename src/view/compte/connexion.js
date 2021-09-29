@@ -23,8 +23,6 @@ function Home () {
         
         <div>
 
-            {Create}
-
             <Row>
                 
                 <Col><br/>
@@ -35,8 +33,10 @@ function Home () {
 
             </Row>
 
+            {Create}
+
         </div>
     )
-};
+}
 
 export default Home;

@@ -50,54 +50,82 @@ function Log() {
     
     
     function nolog() {
+        
         return (
-            <div>
+            
+        <div>
 
-<Container>
+            <Container>
 
-    <Row className="justify-content-md-center">
+                <Row className="justify-content-md-center">
 
-        <Col lg="3">
+                    <Col lg="3">
 
-        </Col>
+                    </Col>
 
-            <Col lg="6">
+                        <Col lg="6">
+        
+                                <InputGroup className="mb-3">
 
-                <Card>
+                                    <FormControl type="email" className="email" onChange={inputEmail} placeholder="Email" />
 
-                    <InputGroup className="mb-3">
+                                </InputGroup>
 
-                        <FormControl type="email" className="email" onChange={inputEmail} placeholder="E-Mail" />
+                                <InputGroup className="mb-3">
 
-                    </InputGroup>
+                                    <FormControl type="password" className="password" onChange={inputPassword} placeholder="Mot de passe" />
 
-                    <InputGroup className="mb-3">
+                                </InputGroup>
 
-                        <FormControl type="password" className="password" onChange={inputPassword} placeholder="M.D.P" />
+                        </Col>
 
-                    </InputGroup>
+                    <Col lg="3">
 
-                </Card>
+                    </Col>
 
-            </Col>
+                </Row>
 
-          <Col lg="3">
+            </Container>
 
-          </Col>
+        </div>
 
-        </Row>
-
-    </Container>
-
-            </div>
         )
     }
 
     return (
+        
         <div>
-            <p>{Erreur}</p>
-            {Message}
-            <button className="btn" onClick={btn}>{BTN}</button>
+
+            <Container>
+
+                <Row className="justify-content-md-center">
+
+                    <Col lg="3">
+
+                    </Col>
+
+                        <Col lg="6">
+
+                                <Card id="loginForm">
+
+                                <p id="message">{Erreur}</p>
+
+                                {Message}
+
+                                <Button variant="primary" size="sm" onClick={btn}>{BTN}</Button>
+
+                                </Card>
+
+                        </Col>
+
+                    <Col lg="3">
+
+                    </Col>
+
+                </Row>
+
+            </Container>
+
         </div>
     )
 }
