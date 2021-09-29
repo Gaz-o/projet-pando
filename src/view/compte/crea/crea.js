@@ -53,7 +53,7 @@ function Crea() {
 
               <Col lg="6">
 
-                <Card class="creaForm">
+                <Card id="creaForm">
 
                 <h5>Mettez-vous au vert ! Créez un compte sur Pando :</h5><br/>
 

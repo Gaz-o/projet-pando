@@ -63,7 +63,7 @@ function Log() {
 
             <Col lg="6">
 
-                <Card class="creaForm">
+                <Card>
 
                     <InputGroup className="mb-3">
 
