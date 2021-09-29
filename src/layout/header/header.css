@@ -1,5 +1,5 @@
-/*.navbar-collapse{
-padding-left:550px;
-}*/
+.navbar-collapse{
+padding-left:50px;
+}
 
-.nav-link{margin-left:5px;margin-right:5px;}
+.nav-link{margin-left:25px;margin-right:25px;}

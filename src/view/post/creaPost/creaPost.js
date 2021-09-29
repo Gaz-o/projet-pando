@@ -1,10 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Container,Form, FormControl, InputGroup ,Button} from 'react-bootstrap';
+import {Container,Form, FormControl, InputGroup ,Button, Row, Col} from 'react-bootstrap';
 import "../post.css";
 import { useEffect, useState } from "react";
 //A introduire après les constantes d'état :
 import { Redirect } from 'react-router-dom';
-import { isUserLoggedIn } from "../../../lib/social-network-library-master";
+import { isUserLoggedIn, createPost } from "../../../lib/social-network-library-master";
 
 function CreatePost() {
 
@@ -21,9 +21,16 @@ function CreatePost() {
     );
 
     useEffect (() => 
-        console.log(showPosts), [showPosts]
+        console.log(status), [status]
+    );
+    useEffect (() => 
+        console.log(feed), [feed]
     );
 
+    useEffect (() => 
+        console.log(showPosts), [showPosts]
+    );
+    
     if(isUserLoggedIn() !== true) {
         return <Redirect to="/" />
     }
@@ -37,44 +44,62 @@ function CreatePost() {
         console.log("content on change :" +e.target.value);
     }
 
-    const post = (e) => {
+    const post = async () => {
 
         if (status.title === "" && status.content === "") {
             setMessage("Tous les champs sont requis");
         }else{
-            setFeed([...feed, status]);
-            setStatus({...status.etat, etat: "Posted"});
-            console.log("Titre : "+status.title+" Content : "+status.content);
-            setShowposts("Titre : "+status.title+" Content : "+status.content);
-        }
-
+        setFeed([...feed, status]);
+        setStatus({...status.etat, etat: "Posted"});
+        setShowposts("Titre : "+status.title+" Content : "+status.content);
+        let result = await createPost(status.title, status.content);
+        console.log(result);
+        document.querySelector("#postTitle").value = "";
+        document.querySelector("#postContent").value = "";}
     }
 
+    
     return (
 
-        <div>
+        <div><br/>
 
             <h6>Publier sur Pando</h6>
 
                 <Container>
 
-                    <p id="emptyMessage">{emptyField}</p>
+                    <Row className="justify-content-md-center">
 
-                    <Form id="title">
+                        <Col lg="3">
 
-                        <InputGroup className="mb-3">
+                        </Col>
 
-                            <FormControl id="postTitle" type="text" onChange={getTitle} placeholder="Ajouter un titre :" aria-label="task" aria-describedby="basic-addon"/>
-                            
-                        </InputGroup>
+                        <Col lg="6">
 
-                        <FormControl as="textarea" id="postContent" type="text" onChange={getContent} placeholder="Votre contenu :" aria-label="task" aria-describedby="basic-addon"/><br/>
+                            <p id="emptyMessage">{emptyField}</p>
 
-                        <Button variant="outline-success" onClick={post}>Publier</Button>
+                            <Form id="title">
 
-                    </Form><br/><br/>
+                                <InputGroup className="mb-3">
 
-                    <p>{showPosts}</p>
+                                    <FormControl id="postTitle" type="text" onChange={getTitle} placeholder="Ajouter un titre :" aria-label="task" aria-describedby="basic-addon"/>
+                                    
+                                </InputGroup>
+
+                                <FormControl as="textarea" id="postContent" type="text" onChange={getContent} placeholder="Votre contenu :" aria-label="task" aria-describedby="basic-addon"/><br/>
+
+                                <Button variant="outline-success" onClick={post}>Publier</Button>
+
+                            </Form><br/><br/>
+
+                            <p>{showPosts}</p>
+
+                        </Col>
+
+                        <Col lg="3">
+
+                        </Col>
+
+                    </Row>
 
                 </Container>
 

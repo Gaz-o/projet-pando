@@ -42,14 +42,14 @@ export default async function fetchFromApi(
     /* Query parameters */
     let queryParameters = "";
     if (query) {
-      queryParameters = Object.keys(query)
+      queryParameters = "?" + (Object.keys(query)
         .map(
           (property) =>
             encodeURIComponent(property) +
             "=" +
-            encodeURIComponent(query(property))
+            encodeURIComponent(query[property])
         )
-        .join("&");
+        .join("&"));
     }
 
     /* Request */
