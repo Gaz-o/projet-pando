@@ -2,6 +2,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container,Form, FormControl, InputGroup ,Button} from 'react-bootstrap';
 import "../post.css";
 import { useEffect, useState } from "react";
+//A introduire après les constantes d'état :
+import { Redirect } from 'react-router-dom';
+import { isUserLoggedIn } from "../../../lib/social-network-library-master";
 
 function CreatePost() {
 
@@ -9,6 +12,12 @@ function CreatePost() {
     const [emptyField, setMessage] = useState("");
     const [showPosts, setShowposts] = useState("");
     const [feed, setFeed] = useState([]);
+
+
+    
+    if(isUserLoggedIn() !== true) {
+        return <Redirect to="/" />
+    }
 
     const getTitle = (e) => {
         setStatus({...status, title: e.target.value});
