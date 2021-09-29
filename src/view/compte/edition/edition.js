@@ -5,9 +5,10 @@ import { Redirect } from 'react-router-dom';
 
 function Edition() {
 
-    /* Variables d'état */
+    /* Variable d'état */
     const [Profile, setProfile] = useState([]);
 
+    /* Récupération des infos du profil connecté */
     const recupUser = async () => {
         let result = await getCurrentUserProfile();
         return result
@@ -25,14 +26,21 @@ function Edition() {
 
     console.log(Profile);
 
+    /* Evénénement clic sur le bouton */
+    const handleClick = async () => {
+        let updateResult = await updateCurrentUserProfile(Profile.firstname, Profile.lastname, Profile.email, Profile.age, Profile.occupation);
+        console.log(updateResult);
+    }
+
     return (
-        <div>
+        <div className="profileContainer">
             <h3>Mon profil</h3>
-            <p>Prénom: <span>{Profile.firstname}</span></p>
-            <p>Nom: <span>{Profile.lastname}</span></p>
-            <p>Âge: <span></span></p>
-            <p>Email: <span>{Profile.email}</span></p>
-            <p>Poste: <span></span></p>
+            <p>Prénom: <span id="firstNameInput">{Profile.firstname}</span></p>
+            <p>Nom: <span id="lastNameInput">{Profile.lastname}</span></p>
+            <p>Email: <span id="emailInput">{Profile.email}</span></p>
+            <p>Âge: <span id="ageInput">{Profile.age}</span></p>
+            <p>Poste: <span id="occupationInput">{Profile.occupation}</span></p>
+            <button onClick={handleClick}>Sauvegarder les modifications</button>
         </div>
     )
 }
