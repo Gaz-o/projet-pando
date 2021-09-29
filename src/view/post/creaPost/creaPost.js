@@ -12,9 +12,18 @@ function CreatePost() {
     const [emptyField, setMessage] = useState("");
     const [showPosts, setShowposts] = useState("");
     const [feed, setFeed] = useState([]);
-
-
     
+    useEffect (() => 
+        console.log(status), [status]
+    );
+    useEffect (() => 
+        console.log(feed), [feed]
+    );
+
+    useEffect (() => 
+        console.log(showPosts), [showPosts]
+    );
+
     if(isUserLoggedIn() !== true) {
         return <Redirect to="/" />
     }
@@ -41,19 +50,6 @@ function CreatePost() {
 
     }
 
-    
-    useEffect (() => 
-        console.log(status), [status]
-    );
-    useEffect (() => 
-        console.log(feed), [feed]
-    );
-
-    useEffect (() => 
-        console.log(showPosts), [showPosts]
-    );
-
-    
     return (
 
         <div>
