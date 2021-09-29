@@ -1,3 +1,5 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Card,Button, Container, Row, Col} from 'react-bootstrap';
 import { useEffect, useState } from "react";
 import { getPosts } from "../../lib/social-network-library-master";
 import "./feed.css";
@@ -23,10 +25,43 @@ function Nourrir() {
     const LaFonction = () => {
         return Posts.map((post) => {
             return (
+                
                 <div>
-                    <h3>{post.title}</h3>
-                    <p>{post.content}</p>
-                    <p>{post.firstname} a {post.date}</p>
+
+                    <Container class="container">
+
+                        <Row>
+
+                            <Col lg="3">
+
+                            </Col>
+
+                                <Col lg="6"><br/>
+
+                                    <Card class="card">
+            
+                                        <Card.Body>
+
+                                            <Card.Title>{post.title}</Card.Title>
+
+                                                <Card.Text>{post.content}<br/><br/><p>{post.firstname} a {(post.date instanceof Date) ? post.date.toLocaleDateString() : new Date(post.date).toLocaleDateString()}</p></Card.Text>
+
+                                                    <Button variant="primary">Go somewhere</Button>
+
+                                        </Card.Body>
+
+                                    </Card><br/>
+                                    
+                                </Col>
+
+                            <Col lg="3">
+
+                            </Col>
+
+                        </Row>
+
+                        </Container>
+
                 </div>
             )
         })
