@@ -1,51 +1,38 @@
 import "../compte.css";
-import { getCurrentUserProfile, isUserLoggedIn, updateCurrentUserProfile } from "../../../lib/social-network-library-master";
-import { useState, useEffect, Profiler } from "react";
+import { getCurrentUserProfile, isUserLoggedIn} from "../../../lib/social-network-library-master";
+import { useState, useEffect} from "react";
 import { Redirect } from 'react-router-dom';
 
-function Edition () {
+function Edition() {
 
     /* Variables d'état */
-    const [userProfile, setProfile] = useState({firstname:"", lastname:"", email:"", _id:""}); 
-    
+    const [Profile, setProfile] = useState([]);
 
-    /* Récupération des infos du profil connecté */
-    const handleClick = async () => {
-        let result = await getCurrentUserProfile(userProfile);
-        console.log(result, 1);
+    const recupUser = async () => {
+        let result = await getCurrentUserProfile();
+        return result
     }
-    
-    useEffect (() => 
-        getCurrentUserProfile().then((rep)=>{
-            setProfile(rep.userProfile)
-            console.log(rep);
+
+    useEffect(()=>{
+        recupUser().then((rep) => {
+            setProfile(rep)               
         })
-    );
-     
-        /*if(userProfile !== "") {
-            setProfile({...userProfile, 
-            firstname : result.firstname,
-            lastname : userProfile.lastname, 
-            email : userProfile.email,
-            _id : userProfile._id
-            }, console.log(userProfile, 2));
-        }*/
-    
-    
+    },[])
 
     if(isUserLoggedIn() !== true) {
         return <Redirect to="/" />
     }
 
+    console.log(Profile);
+
     return (
         <div>
             <h3>Mon profil</h3>
-            <p>Prénom: <span></span></p>
-            <p>Nom: <span></span></p>
+            <p>Prénom: <span>{Profile.firstname}</span></p>
+            <p>Nom: <span>{Profile.lastname}</span></p>
             <p>Âge: <span></span></p>
-            <p>Email: <span></span></p>
+            <p>Email: <span>{Profile.email}</span></p>
             <p>Poste: <span></span></p>
-            <button onClick={handleClick}>Test</button>
         </div>
     )
 }
