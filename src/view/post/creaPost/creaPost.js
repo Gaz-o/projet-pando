@@ -35,7 +35,7 @@ function CreatePost() {
         return <Redirect to="/" />
     }
 
-    const getTitle = (e) => {
+    const getTitle = (e) => { 
         setStatus({...status, title: e.target.value});
         console.log("title on change:" +e.target.value);
     }

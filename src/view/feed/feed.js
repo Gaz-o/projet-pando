@@ -42,6 +42,6 @@ function Nourrir() {
         </div>
     )
 
-};
+}
 
 export default Nourrir;
