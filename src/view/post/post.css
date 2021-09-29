@@ -1,3 +1,60 @@
+.Main {
+    width: 90%;
+    margin: auto;
+    background-color: rgba(0, 128, 0, 0.048);
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow: -10px -5px 5px rgba(0, 128, 0, 0.048), 10px 5px 5px rgba(0, 128, 0, 0.048);
+}
+
+.CardG {
+    width: 80%;
+    border: 1px solid green;
+    border-radius: 15px;
+    margin: 15px;
+    background-color: honeydew;
+    box-shadow: 10px 5px 5px green,  10px -5px 5px green;
+}
+
+.CardD {
+    width: 80%;
+    border: 1px solid green;
+    border-radius: 15px;
+    margin: 15px;
+    margin-left: calc(20% - 15px);
+    background-color: honeydew;
+    box-shadow: -10px -5px 5px green, -10px 5px 5px green;
+
+}
+
+.CardTitle {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    align-items: baseline;
+    border-bottom: 1px solid green ;
+}
+
+.Contenue {
+    border-bottom: 1px solid green ;
+    padding: 5px;
+}
+
+.CardFooter {
+    display: flex;
+    width: 100%;
+    align-items: baseline;
+}
+
+.btnlike {
+    margin: 10px;
+    width: 80px;
+}
+
 #emptyMessage{
-color:brown;
+    color:brown;
+    }
+    
+.standart {
+    text-align: center;
 }

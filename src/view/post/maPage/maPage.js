@@ -1,6 +1,6 @@
 import "./maPage.css";
 import { useEffect, useState } from "react";
-import { getPosts,getCurrentUserProfile,isUserLoggedIn } from "../../lib/social-network-library-master";
+import { getPosts,getCurrentUserProfile,isUserLoggedIn } from "../../../lib/social-network-library-master";
 import { Redirect } from 'react-router-dom';
 
 
@@ -44,7 +44,7 @@ function MaPage() {
     const myWall = () => {
         return Posts.map((post) => {
 
-            if(post.firstname==id){
+            if(post.firstname===id){
 
             return (
 

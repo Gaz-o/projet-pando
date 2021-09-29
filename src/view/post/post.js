@@ -1,4 +1,4 @@
-import { addLike } from "../lib/social-network-library-master";
+import { addLike } from "../../lib/social-network-library-master";
 import "./post.css"
 import {Button} from 'react-bootstrap';
 
@@ -12,7 +12,7 @@ function Post (props) {
     const LaFonction = () => {
         return props.posts.map((post, key) => {
             let card
-            if (key%2 == 0) {
+            if (key%2 === 0) {
                 card = "CardG"
             } else {
                 card = "CardD"
