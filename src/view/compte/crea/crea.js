@@ -1,4 +1,6 @@
 import "../compte.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Container, FormControl, InputGroup ,Button, Row, Col, Card} from 'react-bootstrap';
 import { useState } from "react";
 import { register } from "../../../lib/social-network-library-master";
 
@@ -38,16 +40,61 @@ function Crea() {
     }
 
   return (
+
     <div>
-      <input onChange={handleFirstNameInput} type="text" id="firstNameInput" placeholder="Prénom"></input>
-      <br />
-      <input onChange={handleLastNameInput} type="text" id="lastNameInput" placeholder="Nom de famille"></input>
-      <br />
-      <input onChange={handleEmailInput} type="email" id="emailInput" placeholder="Adresse e-mail"></input>
-      <br />
-      <input onChange={handlePasswordInput} type="password" id="passwordInput" placeholder="Mot de passe"></input>
-      <br />
-      <button onClick={handleClick}>Suivant</button>
+
+      <Container>
+
+        <Row className="justify-content-md-center">
+
+            <Col lg="3">
+
+            </Col>
+
+              <Col lg="6">
+
+                <Card class="creaForm">
+
+                <h5>Mettez-vous au vert ! Créez un compte sur Pando :</h5><br/>
+
+                  <InputGroup className="mb-3">
+
+                    <FormControl onChange={handleFirstNameInput} type="text" id="firstNameInput" placeholder="Prénom"/>
+
+                  </InputGroup><br/>
+
+                  <InputGroup className="mb-3">
+
+                    <FormControl onChange={handleLastNameInput} type="text" id="lastNameInput" placeholder="Nom de famille"/>
+
+                  </InputGroup><br/>
+
+                  <InputGroup className="mb-3">
+
+                    <FormControl onChange={handleEmailInput} type="email" id="emailInput" placeholder="Adresse e-mail"/>
+
+                  </InputGroup><br/>
+
+                  <InputGroup className="mb-3">
+
+                    <FormControl onChange={handlePasswordInput} type="password" id="passwordInput" placeholder="Mot de passe"/>
+
+                  </InputGroup><br/>
+
+                  <Button variant="success"onClick={handleClick}>Suivant</Button>
+
+                </Card>
+
+              </Col>
+
+          <Col lg="3">
+
+          </Col>
+
+        </Row>
+
+    </Container>
+
     </div>
   );
 }

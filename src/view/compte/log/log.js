@@ -1,3 +1,5 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Container, FormControl, InputGroup ,Button, Row, Col, Card} from 'react-bootstrap';
 import { useEffect, useState } from "react";
 import "../compte.css";
 import { login, logout, isUserLoggedIn } from "../../../lib/social-network-library-master";
@@ -50,8 +52,43 @@ function Log() {
     function nolog() {
         return (
             <div>
-                <input type="email" className="email" onChange={inputEmail} placeholder="E-Mail" />
-                <input type="password" className="password" onChange={inputPassword} placeholder="M.D.P" />
+
+<Container>
+
+    <Row className="justify-content-md-center">
+
+        <Col lg="3">
+
+        </Col>
+
+            <Col lg="6">
+
+                <Card class="creaForm">
+
+                    <InputGroup className="mb-3">
+
+                        <FormControl type="email" className="email" onChange={inputEmail} placeholder="E-Mail" />
+
+                    </InputGroup>
+
+                    <InputGroup className="mb-3">
+
+                        <FormControl type="password" className="password" onChange={inputPassword} placeholder="M.D.P" />
+
+                    </InputGroup>
+
+                </Card>
+
+            </Col>
+
+          <Col lg="3">
+
+          </Col>
+
+        </Row>
+
+    </Container>
+
             </div>
         )
     }

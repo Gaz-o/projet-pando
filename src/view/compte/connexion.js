@@ -1,3 +1,5 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Button, Row, Col} from 'react-bootstrap';
 import { useState } from "react";
 import "./compte.css";
 import Crea from "./crea/crea";
@@ -18,9 +20,21 @@ function Home () {
     }
 
     return (
+        
         <div>
-            <button className="btn" onClick={btn}>{Message}</button>
+
             {Create}
+
+            <Row>
+                
+                <Col><br/>
+
+                    <Button variant="success" onClick={btn}>{Message}</Button>
+
+                </Col>
+
+            </Row>
+
         </div>
     )
 };
