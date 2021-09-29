@@ -44,11 +44,31 @@
     display: flex;
     width: 100%;
     align-items: baseline;
+    justify-content: space-evenly;
 }
 
 .btnlike {
     margin: 10px;
     width: 80px;
+}
+
+.btncom {
+    margin: 10px;
+    padding: 10px;
+}
+
+.Comment {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: small;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.Commentaire {
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
 }
 
 #emptyMessage{

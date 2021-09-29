@@ -1,6 +1,6 @@
 import "./maPage.css";
 import { useEffect, useState } from "react";
-import { getPosts,getCurrentUserProfile,isUserLoggedIn } from "../../../lib/social-network-library-master";
+import { getPosts, getCurrentUserProfile, isUserLoggedIn } from "../../../lib/social-network-library-master";
 import { Redirect } from 'react-router-dom';
 
 
@@ -16,15 +16,15 @@ function MaPage() {
     const recupUser = async () => {
         let result = await getCurrentUserProfile();
         setID(result.firstname);
-        console.log ("firstname :"+result.firstname)
+        console.log("firstname :" + result.firstname)
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         recupUser().then((rep) => {
-            setProfile(rep) 
-            console.log("user :"+rep)              
+            setProfile(rep)
+            console.log("user :" + rep)
         })
-    },[])
+    }, [])
 
     console.log(Profile);
 
@@ -33,34 +33,34 @@ function MaPage() {
         return result
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         recupPosts().then((rep) => {
-            setPosts(rep.posts)              
+            setPosts(rep.posts)
         })
-    },[])
+    }, [])
 
     console.log(Posts, recupPosts(), 1);
 
     const myWall = () => {
         return Posts.map((post) => {
 
-            if(post.firstname===id){
+            if (post.firstname === id) {
 
-            return (
+                return (
 
-                <div>
-                    <p>{post.firstname} a {post.date}</p>
-                    <h3>{post.title}</h3>
-                    <p>{post.content}</p>
-                    
-                </div>
-          )
+                    <div>
+                        <p>{post.firstname} a {post.date}</p>
+                        <h3>{post.title}</h3>
+                        <p>{post.content}</p>
+
+                    </div>
+                )
             }
         })
     };
-    
-    
-    if(isUserLoggedIn() !== true) {
+
+
+    if (isUserLoggedIn() !== true) {
         return <Redirect to="/" />
     }
 
