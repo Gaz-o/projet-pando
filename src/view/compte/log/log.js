@@ -5,8 +5,8 @@ import { login, logout, isUserLoggedIn } from "../../../lib/social-network-libra
 function Log() {
     const [Email, setEmail] = useState("");
     const [Password, setPassword] = useState("");
-    const [Message, setMessage] = useState("")
-
+    const [Erreur, setErreur] = useState("Rentrer votre Mail et MDP")
+    
     const inputEmail = (e) => {
         setEmail(e.target.value)
     }
@@ -14,44 +14,53 @@ function Log() {
         setPassword(e.target.value)
     }
 
-    let co;
+    const [Message, setMessage] = useState(nolog())
+    const [BTN, setBTN] = useState("Soumettre")
+    let co
 
     const btn = async () => {
-        co = await login(Email, Password);
-        setMessage(co.message);
-    }
-
-    const btnLogOut = async () => {
-        co = await logout()
-        setMessage("")
-        console.log();
+        if (isUserLoggedIn() === true) {
+            co = await logout();
+            setErreur("Rentrer votre Mail et MDP");
+            setMessage(nolog())
+            setBTN("Soumettre")
+            console.log("deco is", co)
+        } else {
+            co = await login(Email, Password);
+            setPassword("");
+            setEmail("")
+            setErreur(co.message);
+            console.log(co);
+            if (co.success) {
+                setMessage("Si vous le voulez vous pouvez vous")
+                setBTN("Déconnecter")
+            }
+        }
     }
 
     useEffect(() => {
-        isUserLoggedIn()
-    }, [co]);
-
-    const NoLog = (
-        <div>
-            <h2>Connexion</h2>
-            <p>{Message}</p>
-            <label>Votre Email</label>
-            <input type="email" className="email" onChange={inputEmail} />
-            <label>Mot de passe</label>
-            <input type="password" className="password" onChange={inputPassword} />
-            <button className="btn" onClick={btn}>Soumettre</button>
-        </div>
-    )
-
-    const YesLog =
-        (<div>
-            <p>{Message}</p>
-            <button className="btn" onClick={btnLogOut}>Deconnexion</button>
-        </div>)
+        if (isUserLoggedIn() === true) {
+            setErreur("")
+            setMessage("Si vous le voulez vous pouvez vous")
+            setBTN("Déconnecter")
+        }
+    });
+    
+    
+    function nolog() {
+        return (
+            <div>
+                <input type="email" className="email" onChange={inputEmail} placeholder="E-Mail" />
+                <input type="password" className="password" onChange={inputPassword} placeholder="M.D.P" />
+            </div>
+        )
+    }
 
     return (
         <div>
-            { isUserLoggedIn() !== true ? NoLog : YesLog}
+            <p>{Erreur}</p>
+            {Message}
+            <button className="btn" onClick={btn}>{BTN}</button>
         </div>
     )
 }

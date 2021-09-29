@@ -1,6 +1,7 @@
 import "../compte.css";
-import { getCurrentUserProfile } from "../../../lib/social-network-library-master";
+import { getCurrentUserProfile, isUserLoggedIn } from "../../../lib/social-network-library-master";
 import { useState } from "react";
+import { Redirect } from 'react-router-dom';
 
 function Edition () {
 
@@ -9,6 +10,10 @@ function Edition () {
 
     const handleClick = async () => {
         let currentUserProfile = await getCurrentUserProfile();
+    }
+
+    if(isUserLoggedIn() !== true) {
+        return <Redirect to="/" />
     }
 
     return (

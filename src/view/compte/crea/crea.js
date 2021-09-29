@@ -39,7 +39,6 @@ function Crea() {
 
   return (
     <div>
-      <h3>Créez votre compte</h3>
       <input onChange={handleFirstNameInput} type="text" id="firstNameInput" placeholder="Prénom"></input>
       <br />
       <input onChange={handleLastNameInput} type="text" id="lastNameInput" placeholder="Nom de famille"></input>

@@ -1,14 +1,20 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container,Form, FormControl, InputGroup ,Button} from 'react-bootstrap';
 import "../post.css";
+import { Redirect } from 'react-router-dom';
+import { isUserLoggedIn } from "../../../lib/social-network-library-master";
 import { useState } from "react";
 
 function CreatePost() {
-
-    const [status, setStatus] = useState({ title: "", content: "", etat:"Posted" });
+    
+    //const [status, setStatus] = useState({ title: "", content: "", etat:"Posted" });
     //const [content, setContent] = useState("");
     const [emptyField, setemptyField] = useState("");
-    const [feed, setFeed] = useState([]);
+    //const [feed, setFeed] = useState([]);
+    
+    if(isUserLoggedIn() !== true) {
+        return <Redirect to="/" />
+    }
 
     /*const getTitle = (e) => {
         setStatus(...title, e.target.value);
