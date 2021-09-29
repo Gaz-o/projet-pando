@@ -1,0 +1,36 @@
+.Main {
+    width: 90%;
+    margin: auto;
+    background-color: rgba(0, 128, 0, 0.219);
+}
+
+.Card {
+    width: 80%;
+    border: 1px solid green;
+    border-radius: 15px;
+    margin: 15px;
+    background-color: honeydew;
+}
+
+.CardTitle {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    align-items: baseline;
+    border-bottom: 1px solid green ;
+}
+
+.Contenue {
+    border-bottom: 1px solid green ;
+}
+
+.CardFooter {
+    display: flex;
+    width: 100%;
+    align-items: baseline;
+}
+
+.btnlike {
+    margin: 10px;
+    width: 80px;
+}
