@@ -3,43 +3,36 @@ import { getCurrentUserProfile, isUserLoggedIn, updateCurrentUserProfile } from 
 import { useState, useEffect } from "react";
 import { Redirect } from 'react-router-dom';
 
-function Edition () {
+function Edition() {
 
     /* Variables d'état */
-    /* const [profile, setProfile] = useState({firstname:"", lastname:"", email:"", _id:""}); */
-    let userProfile = "";
+    const [Profile, setProfile] = useState([]);
 
-    /* Récupération des infos du profil connecté */
-    const handleClick = async () => {
-        userProfile = await getCurrentUserProfile();
-        console.log(userProfile, 1);
+    const recupUser = async () => {
+        let result = await getCurrentUserProfile();
+        return result
     }
-    
-   /*  useEffect(() => {
-        if(userProfile !== "") {
-            setProfile({...profile, 
-            firstname: userProfile.firstname, 
-            lastname: userProfile.lastname, 
-            email: userProfile.email, 
-            _id: userProfile._id
-            }, console.log(profile, 2));
-        }
-    })
-    */
+
+    useEffect(()=>{
+        recupUser().then((rep) => {
+            setProfile(rep)               
+        })
+    },[])
 
     if(isUserLoggedIn() !== true) {
         return <Redirect to="/" />
     }
 
+    console.log(Profile);
+
     return (
         <div>
             <h3>Mon profil</h3>
-            <p>Prénom: <span>{userProfile.firstname}</span></p>
-            <p>Nom: <span></span></p>
+            <p>Prénom: <span>{Profile.firstname}</span></p>
+            <p>Nom: <span>{Profile.lastname}</span></p>
             <p>Âge: <span></span></p>
-            <p>Email: <span></span></p>
+            <p>Email: <span>{Profile.email}</span></p>
             <p>Poste: <span></span></p>
-            <button onClick={handleClick}>Test</button>
         </div>
     )
 }
