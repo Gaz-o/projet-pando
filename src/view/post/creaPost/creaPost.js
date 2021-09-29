@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 function CreatePost() {
 
-    const [status, setStatus] = useState({ content:"", title:"", etat:"Posted" });
+    const [status, setStatus] = useState({ content:"", title:"", etat:"" });
     const [emptyField, setMessage] = useState("");
     const [showPosts, setShowposts] = useState("");
     const [feed, setFeed] = useState([]);
@@ -26,8 +26,8 @@ function CreatePost() {
         }else{
             setFeed([...feed, status]);
             setStatus({...status.etat, etat: "Posted"});
-            console.log(status.content+"-"+status.title);
-            setShowposts(status.content+"-"+status.title);
+            console.log("Titre : "+status.title+" Content : "+status.content);
+            setShowposts("Titre : "+status.title+" Content : "+status.content);
         }
 
     }
@@ -53,7 +53,7 @@ function CreatePost() {
 
                 <Container>
 
-                    <p>{emptyField}</p>
+                    <p id="emptyMessage">{emptyField}</p>
 
                     <Form id="title">
 
@@ -63,11 +63,11 @@ function CreatePost() {
                             
                         </InputGroup>
 
-                        <FormControl as="textarea" id="postContent" type="text" onChange={getContent} placeholder="Votre contenu :" aria-label="task" aria-describedby="basic-addon"/><br/><br/>
+                        <FormControl as="textarea" id="postContent" type="text" onChange={getContent} placeholder="Votre contenu :" aria-label="task" aria-describedby="basic-addon"/><br/>
 
                         <Button variant="outline-success" onClick={post}>Publier</Button>
 
-                    </Form>
+                    </Form><br/><br/>
 
                     <p>{showPosts}</p>
 
