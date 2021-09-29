@@ -10,9 +10,16 @@ function Post (props) {
     }
 
     const LaFonction = () => {
-        return props.posts.map((post) => {
+        return props.posts.map((post, key) => {
+            let card
+            if (key%2 == 0) {
+                card = "CardG"
+            } else {
+                card = "CardD"
+            }
+            console.log(card);
             return (
-                <div className="Card">
+                <div className={card}>
                     <div className="CardTitle">
                         <h3 className="Title">{post.title}</h3>
                         <p className="name">De {post.firstname}</p>
