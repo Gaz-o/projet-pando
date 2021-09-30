@@ -42,6 +42,7 @@
 
 .CardFooter {
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
     align-items: baseline;
     justify-content: space-evenly;

@@ -53,7 +53,6 @@ function Post(props) {
                 }
                 return affichage(post, card)
             }
-
         })
     };
 
