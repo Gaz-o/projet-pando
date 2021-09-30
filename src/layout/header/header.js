@@ -8,7 +8,7 @@ function Header() {
     /* Implémentation des links de react-router-dom */
     return (
         <div>
-            <Navbar bg="light" expand="lg" className="border-bottom">
+            <Navbar bg="success" expand="lg" className="border-bottom">
 
                 <Container>
 
@@ -19,10 +19,16 @@ function Header() {
                                     <Navbar.Collapse id="basic-navbar-nav">
 
                                     <Nav>
-                                            <Link className="nav-link" to="/compte"><Button variant="outline-success" className="button">Compte</Button></Link>
-                                            <Link className="nav-link" to="/feed"><Button variant="outline-success" className="button">L'arbre foret</Button></Link>
-                                            <Link className="nav-link" to="/creaPost"><Button variant="outline-success" className="button">Ma feuille</Button></Link>
-                                            <Link className="nav-link" to="/maPage"><Button variant="outline-success" className="button">Ma branche</Button></Link>
+                                            <Link className="nav-link" to="/compte"><Button variant="success" className="button">Compte</Button></Link>
+                                            <Link className="nav-link" to="/feed"><Button variant="success" className="button">L'arbre foret</Button></Link>
+                                            
+                                    </Nav>
+
+                                    <Nav>
+
+                                            <Link className="nav-link" to="/creaPost"><Button variant="success" className="button">Ma feuille</Button></Link>
+                                            <Link className="nav-link" to="/maPage"><Button variant="success" className="button">Ma branche</Button></Link>
+
                                     </Nav>
 
                             </Navbar.Collapse>

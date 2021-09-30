@@ -88,6 +88,8 @@ function Edition() {
 
                             <Card>
     
+                                <Card.Img variant="top" src="" />
+
                                     <Card.Body>
         
                                         <Card.Title>Mon profil</Card.Title><br/>
