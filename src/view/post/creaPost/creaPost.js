@@ -61,7 +61,7 @@ function CreatePost() {
     
     return (
 
-        <div><br/>
+        <div className="standart"><br/>
 
             <h6>Publier sur Pando</h6>
 

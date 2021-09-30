@@ -1,9 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button, Row, Col} from 'react-bootstrap';
 import { useState } from "react";
-import "./compte.css";
 import Crea from "./crea/crea";
 import Log from "./log/log";
+import "./compte.css"
 
 function Home () {
     const [Create, setCrea] = useState(<Log/>)
@@ -21,7 +21,7 @@ function Home () {
 
     return (
         
-        <div>
+        <div className="standart">
 
             <Row>
                 
