@@ -1,5 +1,17 @@
 .navbar-collapse{
-padding-left:50px;
+    justify-content: flex-end 
 }
 
-.nav-link{margin-left:25px;margin-right:25px;}
+.navbar-nav {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-size: x-large;
+}
