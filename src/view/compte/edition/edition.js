@@ -4,7 +4,6 @@ import "../compte.css";
 import { getCurrentUserProfile, isUserLoggedIn, updateCurrentUserProfile } from "../../../lib/social-network-library-master";
 import { useState, useEffect } from "react";
 import { Redirect } from 'react-router-dom';
-//import {pic} from '/IMG_1664.jpg';
 
 function Edition() {
 
@@ -88,10 +87,6 @@ function Edition() {
                         <Col lg="6"><br/>
 
                             <Card>
-    
-                                <Card.Img variant="top" src="" />
-
-                                <img src="./IMG_1664.JPG"/>
     
                                     <Card.Body>
         
