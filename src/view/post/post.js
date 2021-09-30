@@ -1,6 +1,5 @@
 import { addComment, addLike } from "../../lib/social-network-library-master";
-import "./post.css"
-import { Button } from 'react-bootstrap';
+import "./post.css";
 import { FaThumbsUp, FaComment} from 'react-icons/fa';
 import { useState } from "react";
 
@@ -46,7 +45,7 @@ function Post(props) {
                 }
                 return affichage(post, card)
             } else if (props.feed === "feed") {
-                let card
+                let card;
                 if (key % 2 === 0) {
                     card = "CardG"
                 } else {
