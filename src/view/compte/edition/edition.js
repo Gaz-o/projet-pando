@@ -91,8 +91,6 @@ function Edition() {
     
                                 <Card.Img variant="top" src="" />
 
-                                <img src="./IMG_1664.JPG"/>
-    
                                     <Card.Body>
         
                                         <Card.Title>Mon profil</Card.Title><br/>
