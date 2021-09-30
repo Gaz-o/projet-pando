@@ -6,8 +6,6 @@ import Post from "../post";
 
 function MaPage() {
     
-    
-    const [Posts, setPosts] = useState([]);
     const [Profile, setProfile] = useState([]);
     const [id, setID] = useState("");
     
@@ -25,39 +23,6 @@ function MaPage() {
         })
     }, [])
 
-    console.log(Profile);
-    const recupPosts = async () => {
-        let result = await getPosts();
-        return result
-    }
-
-    useEffect(() => {
-        recupPosts().then((rep) => {
-            setPosts(rep.posts)
-        })
-    }, [])
-
-    console.log(Posts, recupPosts(), 1);
-
-    /* const myWall = () => {
-        return Posts.map((post) => {
-
-            if (post.firstname === id) {
-
-                return (
-
-                    <div>
-                        <p>{post.firstname} a {post.date}</p>
-                        <h3>{post.title}</h3>
-                        <p>{post.content}</p>
-
-                    </div>
-                )
-            }
-        
-        })
-    }; */
-
 
     if (isUserLoggedIn() !== true) {
         return <Redirect to="/" />
@@ -66,7 +31,7 @@ function MaPage() {
     return (
 
         <div>
-            <Post posts={Posts} identitie={id}/>
+            <Post identitie={id}/>
         </div>
     )
 
