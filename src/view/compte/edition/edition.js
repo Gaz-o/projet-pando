@@ -1,6 +1,6 @@
 import "../compte.css";
-import { getCurrentUserProfile, isUserLoggedIn} from "../../../lib/social-network-library-master";
-import { useState, useEffect} from "react";
+import { getCurrentUserProfile, isUserLoggedIn, updateCurrentUserProfile } from "../../../lib/social-network-library-master";
+import { useState, useEffect } from "react";
 import { Redirect } from 'react-router-dom';
 
 function Edition() {
@@ -40,7 +40,7 @@ function Edition() {
             <p>Email: <span id="emailInput">{Profile.email}</span></p>
             <p>Âge: <span id="ageInput">{Profile.age}</span></p>
             <p>Poste: <span id="occupationInput">{Profile.occupation}</span></p>
-            <button onClick={handleClick}>Sauvegarder les modifications</button>
+            <button onClick={handleClick}>Modifier le profil</button>
         </div>
     )
 }
