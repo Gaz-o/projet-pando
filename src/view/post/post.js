@@ -1,6 +1,7 @@
 import { addComment, addLike } from "../../lib/social-network-library-master";
 import "./post.css"
 import { Button } from 'react-bootstrap';
+import { FaThumbsUp, FaComment} from 'react-icons/fa';
 import { useState } from "react";
 
 function Post(props) {
@@ -72,10 +73,11 @@ function Post(props) {
                     {forcomment(post.comments)}
                 </div>
                 <div className="CardFooter">
-                    <Button className="btnlike" variant="success" onClick={() => likes(post._id)}>Like</Button>
-                    <p className="like">{post.likes.length}</p>
+                    
+                    <button className="btnlike" onClick={() => likes(post._id)}><FaThumbsUp/></button>
+                    <p className="like">{post.likes.length}</p><br/>
                     <input className="inputcom" onChange={inputcom} placeholder="Poster un message"></input>
-                    <Button className="btncom" variant="success" onClick={() => comment(post._id)}>Commenter</Button>
+                    <button className="btncom" onClick={() => comment(post._id)}><FaComment/></button>
                 </div>
             </div>
         )
