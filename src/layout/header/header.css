@@ -15,3 +15,7 @@ a {
     color: black;
     font-size: x-large;
 }
+
+a:hover{
+    color:black;
+}
