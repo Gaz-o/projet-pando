@@ -50,11 +50,15 @@
 .btnlike {
     margin: 10px;
     width: 80px;
+    background-color: transparent;
+    border : none;
 }
 
 .btncom {
     margin: 10px;
     padding: 10px;
+    background-color: transparent;
+    border : none;
 }
 
 .Comment {
@@ -78,3 +82,5 @@
 .standart {
     text-align: center;
 }
+
+.inputcom{border-radius: 10px;}

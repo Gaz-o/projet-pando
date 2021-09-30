@@ -2,7 +2,7 @@ import "../compte.css";
 import { getCurrentUserProfile, isUserLoggedIn} from "../../../lib/social-network-library-master";
 import { useState, useEffect} from "react";
 import { Redirect } from 'react-router-dom';
-import "../compte.css"
+
 function Edition() {
 
     /* Variables d'état */
