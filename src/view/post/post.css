@@ -1,29 +1,30 @@
 .Main {
     width: 90%;
     margin: auto;
-    background-color: rgba(0, 128, 0, 0.048);
+    background-color: rgba(0, 128, 0, 0.2);
     display: flex;
     flex-wrap: wrap;
-    box-shadow: -10px -5px 5px rgba(0, 128, 0, 0.048), 10px 5px 5px rgba(0, 128, 0, 0.048);
+    border-radius: 5px;
+    box-shadow: -10px -5px 15px rgba(0, 128, 0, 0.2), 10px 5px 15px rgba(0, 128, 0, 0.2);
 }
 
 .CardG {
     width: 80%;
     border: 1px solid green;
-    border-radius: 15px;
+    border-radius: 5px;
     margin: 15px;
-    background-color: honeydew;
-    box-shadow: 10px 5px 5px green,  10px -5px 5px green;
+    background-color: rgb(238, 238, 238);
+    box-shadow: 10px 5px 5px #75582973,  10px 0px 5px #75582973;
 }
 
 .CardD {
     width: 80%;
     border: 1px solid green;
-    border-radius: 15px;
+    border-radius: 5px;
     margin: 15px;
     margin-left: calc(20% - 15px);
-    background-color: honeydew;
-    box-shadow: -10px -5px 5px green, -10px 5px 5px green;
+    background-color: rgb(213, 253, 175);
+    box-shadow: -10px 0px 5px #634c2373, -10px 5px 5px #634c2373;
 
 }
 
