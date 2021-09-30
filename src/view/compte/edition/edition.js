@@ -1,11 +1,19 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Container, FormControl, InputGroup ,Button, Row, Col, Card} from 'react-bootstrap';
 import "../compte.css";
 import { getCurrentUserProfile, isUserLoggedIn, updateCurrentUserProfile } from "../../../lib/social-network-library-master";
 import { useState, useEffect } from "react";
 import { Redirect } from 'react-router-dom';
+//import {pic} from '/IMG_1664.jpg';
 
 function Edition() {
 
-    /* Variables d'état */
+    /*const profilPic = () => {
+        
+        return <img src={pic} alt="pic" />;
+      }
+
+    /* Variable d'état */
     const [Profile, setProfile] = useState({});
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -64,28 +72,115 @@ function Edition() {
     }
 
     return (
-        <div className="standart">
-            <h3>Modifier mon profil</h3>
-            <label>Prénom:</label>
-            <input onChange={handleFirstName} type="text" id="firstName"></input><br />
-            <label>Nom:</label>
-            <input onChange={handleLastName} type="text" id="lastName"></input><br />
-            <label>Adresse e-mail:</label>
-            <input onChange={handleEmail} type="text" id="email"></input><br />
-            <label>Âge:</label>
-            <input onChange={handleAge} type="text" id="age"></input><br />
-            <label>Poste:</label>
-            <input onChange={handleOccupation} type="text" id="occupation"></input><br />
-            <button onClick={handleClick}>Sauvegarder les modifications</button>
 
-            <div>
-                <h3>Mon profil</h3>
-                <p>Prénom: {Profile.firstname}</p>
-                <p>Nom: {Profile.lastname}</p>
-                <p>E-mail: {Profile.email}</p>
-                <p>Âge: {Profile.age}</p>
-                <p>Poste: {Profile.occupation}</p>
-            </div>
+        
+
+        <div className="standart">
+
+            <Container>
+
+                <Row className="justify-content-md-center">
+
+                    <Col lg="3">
+
+                    </Col>
+
+                        <Col lg="6"><br/>
+
+                            <Card>
+    
+                                <Card.Img variant="top" src="" />
+
+                                <img src="./IMG_1664.JPG"/>
+    
+                                    <Card.Body>
+        
+                                        <Card.Title>Mon profil</Card.Title><br/>
+        
+                                            <Card.Text>
+                
+                                                <p>Prénom: {Profile.firstname}</p>
+                                                <p>Nom: {Profile.lastname}</p>
+                                                <p>E-mail: {Profile.email}</p>
+                                                <p>Âge: {Profile.age}</p>
+                                                <p>Poste: {Profile.occupation}</p>
+
+                                            </Card.Text>
+
+                                    </Card.Body>
+                
+                            </Card><br/>
+
+                            <Card>
+    
+                                    <Card.Body>
+        
+                                        <Card.Title>Modifier mon profil</Card.Title><br/>
+        
+                                            <Card.Text>
+
+                                                <InputGroup size="sm" className="mb-3">
+                                    
+                                                    <InputGroup.Text id="inputGroup-sizing-sm">Prénom:</InputGroup.Text>
+                                        
+                                                        <FormControl  onChange={handleFirstName} type="text" id="firstName" aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
+                                    
+                                                </InputGroup><br/>
+
+                                                <InputGroup size="sm" className="mb-3">
+                                                    
+                                                    <InputGroup.Text id="inputGroup-sizing-sm">Nom:</InputGroup.Text>
+                                        
+                                                        <FormControl onChange={handleLastName} type="text" id="lastName" aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
+                                    
+                                                </InputGroup><br/>
+
+                                                <InputGroup size="sm" className="mb-3">
+                                                    
+                                                    <InputGroup.Text id="inputGroup-sizing-sm">E-mail:</InputGroup.Text>
+                                        
+                                                        <FormControl onChange={handleEmail} type="text" id="email" aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
+                                    
+                                                </InputGroup><br/>
+
+                                                <InputGroup size="sm" className="mb-3">
+                                                    
+                                                    <InputGroup.Text id="inputGroup-sizing-sm">Age:</InputGroup.Text>
+                                        
+                                                        <FormControl onChange={handleAge} type="text" id="age" aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
+                                    
+                                                </InputGroup><br/>
+
+                                                <InputGroup size="sm" className="mb-3">
+                                                    
+                                                    <InputGroup.Text id="inputGroup-sizing-sm">Poste:</InputGroup.Text>
+                                        
+                                                        <FormControl onChange={handleOccupation} type="text" id="occupation" aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
+                                    
+                                                </InputGroup><br/>
+
+                                                <Button onClick={handleClick} variant="outline-success">Sauvegarder les modifications</Button>
+                                                
+                                            </Card.Text>
+
+                                    </Card.Body>
+                
+                            </Card><br/>    
+
+                        </Col>
+
+                    <Col lg="3">
+
+
+                    </Col>
+
+                </Row>
+
+            </Container>
+            
+                            
+  
+            
         </div>
     )
 }
