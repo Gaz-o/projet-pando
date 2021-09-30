@@ -1,24 +1,23 @@
 import "./maPage.css";
 import { useEffect, useState } from "react";
-import { getPosts, getCurrentUserProfile, isUserLoggedIn } from "../../../lib/social-network-library-master";
+import { getCurrentUserProfile, isUserLoggedIn } from "../../../lib/social-network-library-master";
 import { Redirect } from 'react-router-dom';
 import Post from "../post";
 
 function MaPage() {
     
-    const [Profile, setProfile] = useState([]);
     const [id, setID] = useState("");
     
 
     const recupUser = async () => {
         let result = await getCurrentUserProfile();
-        setID(result.firstname);
         console.log("firstname :" + result.firstname)
+        return result;
     }
 
     useEffect(() => {
         recupUser().then((rep) => {
-            setProfile(rep)
+            setID(rep.firstname)
             console.log("user :" + rep)
         })
     }, [])
