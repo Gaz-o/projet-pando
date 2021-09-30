@@ -62,7 +62,8 @@ function Post(props) {
             <div className={card}>
                 <div className="CardTitle">
                     <h3 className="Title">{post.title}</h3>
-                    <p className="name">De {post.firstname}</p>
+                    <br/>
+                    <p>Posté par {post.firstname} le {(post.date instanceof Date) ? post.date.toLocaleDateString() : new Date(post.date).toLocaleDateString()}</p>
                 </div>
                 <div className="Contenue">
                     <p>{post.content}</p>
