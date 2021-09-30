@@ -16,6 +16,7 @@ function MaPage() {
         return result;
     }
 
+    /* Mise à jour de l'ID */
     useEffect(() => {
         recupUser().then((rep) => {
             setID(rep.firstname)
@@ -23,7 +24,7 @@ function MaPage() {
         })
     }, [])
 
-
+    /* Condition de redirection */
     if (isUserLoggedIn() !== true) {
         return <Redirect to="/" />
     }

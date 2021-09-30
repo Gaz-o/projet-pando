@@ -4,8 +4,11 @@ import { FaThumbsUp,FaComment} from 'react-icons/fa';
 import { useEffect, useState } from "react";
 
 function Post(props) {
+
+    /* Variable d'état */
     const [Posts, setPosts] = useState([]);
 
+    /* Récupération des posts de tous les utilisateurs */
     const recupPosts = async () => {
         let result = await getPosts();
         setPosts(result.posts)
