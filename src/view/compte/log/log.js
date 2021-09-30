@@ -47,7 +47,7 @@ function Log() {
             setMessage("Si vous le voulez vous pouvez vous")
             setBTN("Déconnecter")
         }
-    });
+    }, []);
     
     
     function nolog() {

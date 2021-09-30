@@ -2,7 +2,7 @@ import "../compte.css";
 import { getCurrentUserProfile, isUserLoggedIn, updateCurrentUserProfile } from "../../../lib/social-network-library-master";
 import { useState, useEffect } from "react";
 import { Redirect } from 'react-router-dom';
-
+import "../compte.css"
 function Edition() {
 
     /* Variable d'état */
@@ -33,7 +33,7 @@ function Edition() {
     }
 
     return (
-        <div className="profileContainer">
+        <div className="standart">
             <h3>Mon profil</h3>
             <p>Prénom: <span id="firstNameInput">{Profile.firstname}</span></p>
             <p>Nom: <span id="lastNameInput">{Profile.lastname}</span></p>

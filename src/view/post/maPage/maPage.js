@@ -1,73 +1,72 @@
 import "./maPage.css";
 import { useEffect, useState } from "react";
-import { getPosts,getCurrentUserProfile,isUserLoggedIn } from "../../lib/social-network-library-master";
+import { getPosts, getCurrentUserProfile, isUserLoggedIn } from "../../../lib/social-network-library-master";
 import { Redirect } from 'react-router-dom';
-
-
+import Post from "../post";
 
 function MaPage() {
-
+    
+    
     const [Posts, setPosts] = useState([]);
-
-    /* Variables d'état */
     const [Profile, setProfile] = useState([]);
     const [id, setID] = useState("");
+    
 
     const recupUser = async () => {
         let result = await getCurrentUserProfile();
         setID(result.firstname);
-        console.log ("firstname :"+result.firstname)
+        console.log("firstname :" + result.firstname)
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         recupUser().then((rep) => {
-            setProfile(rep) 
-            console.log("user :"+rep)              
+            setProfile(rep)
+            console.log("user :" + rep)
         })
-    },[])
+    }, [])
 
     console.log(Profile);
-
     const recupPosts = async () => {
         let result = await getPosts();
         return result
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         recupPosts().then((rep) => {
-            setPosts(rep.posts)              
+            setPosts(rep.posts)
         })
-    },[])
+    }, [])
 
     console.log(Posts, recupPosts(), 1);
 
-    const myWall = () => {
+    /* const myWall = () => {
         return Posts.map((post) => {
 
-            if(post.firstname==id){
+            if (post.firstname === id) {
 
-            return (
+                return (
 
-                <div>
-                    <p>{post.firstname} a {post.date}</p>
-                    <h3>{post.title}</h3>
-                    <p>{post.content}</p>
-                    
-                </div>
-          )
+                    <div>
+                        <p>{post.firstname} a {post.date}</p>
+                        <h3>{post.title}</h3>
+                        <p>{post.content}</p>
+
+                    </div>
+                )
             }
+        
         })
-    };
-    
-    
-    if(isUserLoggedIn() !== true) {
+    }; */
+
+
+    if (isUserLoggedIn() !== true) {
         return <Redirect to="/" />
     }
 
     return (
 
         <div>
-            {myWall()}
+            <Post posts={Posts} identitie={id}/>
         </div>
     )
 
