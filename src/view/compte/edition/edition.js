@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 
 function Edition() {
 
-    /* Variable d'état */
+    /* Variables d'état */
     const [Profile, setProfile] = useState({});
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -25,6 +25,7 @@ function Edition() {
         recupUser()
     }, [])
 
+    /* Condition de redirection si non connecté */
     if(isUserLoggedIn() !== true) {
         return <Redirect to="/" />
     }

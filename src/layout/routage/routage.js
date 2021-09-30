@@ -8,6 +8,8 @@ import Nourrir from "../../view/post/feed/feed.js";
 import Header from "../header/header";
 
 function Routage() {
+
+  /* Routes de react-router-dom */
   return (
     <Router>
       <div>

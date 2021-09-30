@@ -6,15 +6,18 @@ import Log from "./log/log";
 import "./compte.css"
 
 function Home () {
-    const [Create, setCrea] = useState(<Log/>)
+
+    /* Variables d'état */
+    const [Composant, setComposant] = useState(<Log/>)
     const [Message, setMessage] = useState("Créer un compte")
 
+    /* Evénement de clic */
     const btn = () => {
-        if (Create.type.name === "Log") {
-            setCrea(<Crea/>);
+        if (Composant.type.name === "Log") {
+            setComposant(<Crea/>);
             setMessage("Vous connecter")
         } else {
-            setCrea(<Log/>);
+            setComposant(<Log/>);
             setMessage("Créer un compte")
         }
     }
@@ -33,7 +36,7 @@ function Home () {
 
             </Row>
 
-            {Create}
+            {Composant}
 
         </div>
     )

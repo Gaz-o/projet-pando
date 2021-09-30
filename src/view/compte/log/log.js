@@ -5,10 +5,13 @@ import "../compte.css";
 import { login, logout, isUserLoggedIn } from "../../../lib/social-network-library-master";
 
 function Log() {
+
+    /* Variables d'état */
     const [Email, setEmail] = useState("");
     const [Password, setPassword] = useState("");
     const [Erreur, setErreur] = useState("Rentrer votre Mail et MDP")
     
+    /* Setters - Mise à jour des variables d'état */
     const inputEmail = (e) => {
         setEmail(e.target.value)
     }
@@ -16,12 +19,13 @@ function Log() {
         setPassword(e.target.value)
     }
 
+    /* Variables d'état qui ont besoin des setters */
     const [Message, setMessage] = useState(nolog())
     const [BTN, setBTN] = useState("Soumettre")
 
-    let co
-
+    /* Condition d'affichage du formulaire de connexion */
     const btn = async () => {
+        let co
         if (isUserLoggedIn() === true) {
             co = await logout();
             setErreur("Rentrer votre Mail et MDP");
@@ -41,6 +45,7 @@ function Log() {
         }
     }
 
+    /* Mise à jour de l'affichage */
     useEffect(() => {
         if (isUserLoggedIn() === true) {
             setErreur("")
@@ -49,7 +54,7 @@ function Log() {
         }
     }, []);
     
-    
+    /* Fonction d'affichage */
     function nolog() {
         
         return (

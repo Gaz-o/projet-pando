@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 function Header() {
 
-    
+    /* Implémentation des links de react-router-dom */
     return (
         <div>
             <Navbar bg="light" expand="lg" className="border-bottom">
