@@ -14,7 +14,7 @@ function Post(props) {
         setPosts(result.posts)
     }
 
-
+    /* Ajout de like avec le profil connecté */
     const likes = async (p) => {
         let like = await addLike(p._id);
         if (like.success === true) {
@@ -22,12 +22,15 @@ function Post(props) {
         }
     }
 
+    /* Variable d'état de commentaire */
     const [Com, setCom] = useState("")
 
+    /* Mise à jour de la variable d''état Com */
     const inputcom = (e) => {
         setCom(e.target.value)
     }
 
+    /* Ajout de commentaire avec l'utilisateur connecté */
     const comment = async (id) => {
         let addcom = await addComment(id, Com);
         if (addcom.success === true) {
@@ -35,6 +38,7 @@ function Post(props) {
         }
     }
 
+    /* Affichage du commentaire */
     const forcomment = (comments) => {
         return comments.map((commentaire) => {
             return (
