@@ -49,6 +49,7 @@ function Post(props) {
         })
     }
 
+    /* Fonction de tri basée sur le composant parent */
     const LaFonction = () => {
         return Posts.map((post, key) => {
             if (post.firstname === props.identitie) {
@@ -71,11 +72,13 @@ function Post(props) {
         })
     };
 
+    /* Actualisation de l'affichage des likes et commentaires */
     useEffect(() => {
         recupPosts();
         console.log(Posts);
-      }, []);
+    }, []);
 
+    /* Fonction d'affichage */
     function affichage(post, card) {
         return (
             <div className={card}>
