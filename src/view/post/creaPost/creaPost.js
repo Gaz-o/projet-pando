@@ -8,33 +8,18 @@ import { isUserLoggedIn, createPost } from "../../../lib/social-network-library-
 
 function CreatePost() {
 
+    /* Variables d'état */
     const [status, setStatus] = useState({ content:"", title:"", etat:"" });
     const [emptyField, setMessage] = useState("");
     const [showPosts, setShowposts] = useState("");
     const [feed, setFeed] = useState([]);
-    
-    useEffect (() => 
-        console.log(status), [status]
-    );
-    useEffect (() => 
-        console.log(feed), [feed]
-    );
 
-    useEffect (() => 
-        console.log(status), [status]
-    );
-    useEffect (() => 
-        console.log(feed), [feed]
-    );
-
-    useEffect (() => 
-        console.log(showPosts), [showPosts]
-    );
-    
+    /* Condition de redirection */
     if(isUserLoggedIn() !== true) {
         return <Redirect to="/" />
     }
 
+    /* Fonctions de mise à jour du titre et du contenu */
     const getTitle = (e) => { 
         setStatus({...status, title: e.target.value});
         console.log("title on change:" +e.target.value);
@@ -44,6 +29,7 @@ function CreatePost() {
         console.log("content on change :" +e.target.value);
     }
 
+    /* Récupération des infos et création du post */
     const post = async () => {
 
         if (status.title === "" && status.content === "") {

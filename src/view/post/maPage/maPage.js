@@ -6,9 +6,10 @@ import Post from "../post";
 
 function MaPage() {
     
+    /* Variable d'état */
     const [id, setID] = useState("");
     
-
+    /* Récupération du profil connecté */
     const recupUser = async () => {
         let result = await getCurrentUserProfile();
         console.log("firstname :" + result.firstname)

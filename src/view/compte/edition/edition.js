@@ -33,6 +33,7 @@ function Edition() {
         recupUser()
     }, [])
 
+    /* Condition de redirection si non connecté */
     if(isUserLoggedIn() !== true) {
         return <Redirect to="/" />
     }
