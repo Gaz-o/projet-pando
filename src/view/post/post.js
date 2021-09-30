@@ -53,7 +53,7 @@ function Post(props) {
                 }
                 return affichage(post, card)
             } else if (props.feed === "feed") {
-                let card
+                let card;
                 if (key % 2 === 0) {
                     card = "CardG"
                 } else {
@@ -83,10 +83,11 @@ function Post(props) {
                     {forcomment(post.comments)}
                 </div>
                 <div className="CardFooter">
-                    <Button className="btnlike" variant="success" onClick={() => likes(post)}>Like</Button>
-                    <p className="like">{post.likes.length}</p>
+                    
+                    <button className="btnlike" onClick={() => likes(post)}><FaThumbsUp/></button>
+                    <p className="like">{post.likes.length}</p><br/>
                     <input className="inputcom" onChange={inputcom} placeholder="Poster un message"></input>
-                    <Button className="btncom" variant="success" onClick={() => comment(post._id)}>Commenter</Button>
+                    <button className="btncom" onClick={() => comment(post._id)}><FaComment/></button>
                 </div>
             </div>
         )
