@@ -1,6 +1,6 @@
 import { addComment, addLike, getPosts } from "../../lib/social-network-library-master";
 import "./post.css"
-import { Button } from 'react-bootstrap';
+import { FaThumbsUp,FaComment} from 'react-icons/fa';
 import { useEffect, useState } from "react";
 
 function Post(props) {
