@@ -12,11 +12,12 @@ function MaPage() {
     const recupUser = async () => {
         let result = await getCurrentUserProfile();
         console.log("firstname :" + result.firstname)
+        return result;
     }
 
     useEffect(() => {
         recupUser().then((rep) => {
-            setID(result.firstname);
+            setID(rep.firstname)
             console.log("user :" + rep)
         })
     }, [])
