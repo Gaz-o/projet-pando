@@ -3,7 +3,7 @@ import "./compte.css"
 function Compte () {
     
     return (
-        <div>
+        <div className="containerCompte">
         </div>
     )
 };
