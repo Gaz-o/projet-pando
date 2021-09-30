@@ -25,13 +25,12 @@ function Edition() {
     const recupUser = async () => {
         let result = await getCurrentUserProfile();
         console.log("profil connecté", result);
-        return result
+        setProfile(result)
     }
 
+    /* Affichage des informations mises à jour */
     useEffect(()=>{
-        recupUser().then((rep) => {
-            setProfile(rep)             
-        })
+        recupUser()
     }, [])
 
     if(isUserLoggedIn() !== true) {
@@ -68,6 +67,7 @@ function Edition() {
         document.querySelector("#email").value = "";
         document.querySelector("#age").value = "";
         document.querySelector("#occupation").value = "";
+        recupUser()
     }
 
     return (
