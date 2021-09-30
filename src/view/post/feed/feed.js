@@ -20,7 +20,7 @@ function Nourrir() {
 
     return (
         <div>
-            <Post posts={Posts}/>
+            <Post posts={Posts} feed="feed"/>
         </div>
     )
 
