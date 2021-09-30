@@ -4,15 +4,13 @@ import { getPosts, getCurrentUserProfile, isUserLoggedIn } from "../../../lib/so
 import { Redirect } from 'react-router-dom';
 import Post from "../post";
 
-
-
 function MaPage() {
-
+    
+    
     const [Posts, setPosts] = useState([]);
-
-    /* Variables d'état */
     const [Profile, setProfile] = useState([]);
     const [id, setID] = useState("");
+    
 
     const recupUser = async () => {
         let result = await getCurrentUserProfile();
@@ -28,7 +26,6 @@ function MaPage() {
     }, [])
 
     console.log(Profile);
-
     const recupPosts = async () => {
         let result = await getPosts();
         return result
@@ -57,6 +54,7 @@ function MaPage() {
                     </div>
                 )
             }
+        
         })
     }; */
 
