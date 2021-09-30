@@ -10,7 +10,6 @@ function App() {
     <div className="App">
       <div className="backgroundImg">
       <Routage/>
-      <Footer/>
       </div>
     </div>
   );

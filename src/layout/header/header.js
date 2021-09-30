@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
+=======
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Navbar, Container, Nav, Button } from "react-bootstrap";
+>>>>>>> de4d9b494076f0ab06e49b9aa8fec1db2cb9ebee
 import "./header.css";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function Header() {
 
@@ -25,7 +30,5 @@ function Header() {
         </div>
     );
 }
-
-
 
 export default Header;
