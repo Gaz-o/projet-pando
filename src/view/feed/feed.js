@@ -44,7 +44,7 @@ function Nourrir() {
 
                                             <Card.Title>{post.title}</Card.Title>
 
-                                                <Card.Text>{post.content}<br/><br/><p>{post.firstname} a {(post.date instanceof Date) ? post.date.toLocaleDateString() : new Date(post.date).toLocaleDateString()}</p></Card.Text>
+                                                <Card.Text>{post.content}<br/><br/></Card.Text>
 
                                                     <Button variant="primary">Go somewhere</Button>
 
