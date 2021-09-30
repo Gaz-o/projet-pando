@@ -118,6 +118,8 @@ function Log() {
 
                                 {Message}
 
+                                <br /><br />
+
                                 <Button variant="primary" size="sm" onClick={btn}>{BTN}</Button>
 
                                 </Card>
